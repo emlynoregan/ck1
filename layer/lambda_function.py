@@ -28,6 +28,7 @@ def lambda_handler(event, context):
         region = account_context(context)['region']
         logs = []
         prev_state = event.get("prev_state")
+        project_code = event.get("project_code")
 
         cdef = event.get("component_def")
         cname = event.get("component_name")
