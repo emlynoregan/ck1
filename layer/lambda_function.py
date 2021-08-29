@@ -156,7 +156,7 @@ def remove_layer(layer_name, logs, ops):
 
             for layer_version in layer_versions:
                 print(f"layer_version: {layer_version}")
-                delete_retval = lambda_client.delete_layer_version(LayerName=layer_name, VersionNumber = layer_version.get("VersionNumber"))
+                delete_retval = lambda_client.delete_layer_version(LayerName=layer_name, VersionNumber = layer_version.get("Version"))
                 logs.append(gen_log(f"Deleted layer version", layer_version))
 
             layer_versions_retval = lambda_client.list_layer_versions(
