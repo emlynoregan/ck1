@@ -177,7 +177,7 @@ def remove_layer(layer_name, logs, ops):
     return {"ops": ops, "logs": logs}
 
 def gen_layer_link(layer_name, region):
-    return "https://console.aws.amazon.com/lambda/home?region={region}#/layers/{layer_name}"
+    return f"https://console.aws.amazon.com/lambda/home?region={region}#/layers/{layer_name}"
 
 
 
