@@ -81,6 +81,9 @@ def lambda_handler(event, context):
 
             # if ops.get("publish_layer_version"):
             retval = publish_layer_version(desired_config, logs, ops)
+            if retval.get("statusCode"):
+                return retval            
+
             logs = retval.pop("logs")
             ops = retval.get("ops")
             state = retval.get("state")
