@@ -93,6 +93,8 @@ def lambda_handler(event, context):
                 **remove_none_attributes(state)
             } if state else {}
 
+            print(f"props: {props}")
+
             return creturn(200, 100, success=True, logs=logs, 
                 state=state, 
                 props=props,
