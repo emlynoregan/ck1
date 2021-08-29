@@ -88,7 +88,7 @@ def lambda_handler(event, context):
             props = {
                 "layer_name": layer_name,
                 **remove_none_attributes(state)
-            }
+            } if state else {}
 
             return creturn(200, 100, success=True, logs=logs, 
                 state=state, 
@@ -125,7 +125,7 @@ def publish_layer_version(desired_config, logs, ops):
         logs.append(gen_log(e.response["Error"]["Code"], {"error": str(e)}, is_error=True))
         msg = traceback.format_exc()
         print(msg)
-        return creturn(200, 60, logs=logs, error = msg)
+        return creturn(400, 60, logs=logs, error = msg)
 
         # if e.response['Error']['Code'] in ['PreconditionFailed', 'CodeVerificationFailed', 'InvalidCodeSignature', 'CodeSigningConfigNotFound']:
         #     return creturn(200, 60, logs=logs, error = str(e))
