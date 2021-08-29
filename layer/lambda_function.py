@@ -41,7 +41,7 @@ def lambda_handler(event, context):
 
             description = cdef.get("description") or f"Layer for component {cname} and project {project_code}"
 
-            compatible_runtimes = event.get("compatible_runtimes")
+            compatible_runtimes = cdef.get("compatible_runtimes")
             if not compatible_runtimes:
                 return creturn(200, 0, error=f"you must provide compatible_runtimes")
             if not isinstance(compatible_runtimes, list):
