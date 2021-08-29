@@ -107,7 +107,7 @@ def lambda_handler(event, context):
         elif event.get("op") == "delete":
             layer_name = prev_state['props'].get("layer_name")
             ops = {"remove_layer": layer_name}
-            retval = remove_layer(function_name, logs, ops)
+            retval = remove_layer(layer_name, logs, ops)
             logs = retval.pop("logs")
             return creturn(200, 100, success=True, logs=logs)
 
