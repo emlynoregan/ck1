@@ -16,9 +16,6 @@
                 }]
             },
             "download_folder": true
-        },
-        "sample": {
-            "compatible_runtimes": ["Python3.8"]
         }
     }
 }
