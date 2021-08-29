@@ -109,7 +109,7 @@ def lambda_handler(event, context):
     except Exception as e:
         msg = traceback.format_exc()
         print(msg)
-        return creturn(200, 0, logs=logs, error=msg)
+        return creturn(400, 0, logs=logs, error=msg)
 
 def publish_layer_version(desired_config, logs, ops):
     lambda_client = boto3.client("lambda")
